@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public float limitL;
-    public float limitR;
+    public float xRange;
 
     public GameObject projectilePrefab;
 
@@ -30,13 +29,13 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(horizontalInput * speed * Time.deltaTime * Vector3.right);
 
-        if (transform.position.x < limitL)
+        if (transform.position.x < -xRange)
         {
-            transform.position = new Vector3(limitL, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
-        if (transform.position.x > limitR)
+        if (transform.position.x > xRange)
         {
-            transform.position = new Vector3(limitR, transform.position.y, transform.position.z);
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
         /*
